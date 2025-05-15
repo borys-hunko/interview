@@ -21,7 +21,7 @@ const runMaxParallel = async (
   args: number[],
   maxParallel: number,
 ): Promise<number[]> => {
-  const start1 = Date.now();
+  const start = Date.now();
 
   // first numbers to be passed to asyncGet
   const firstBatchNumbers = args.slice(0, maxParallel);
@@ -56,7 +56,7 @@ const runMaxParallel = async (
   const remainedResults = remainedAsyncGetResults.map((res) => res.num);
   asyncGetResults.push(...remainedResults);
 
-  console.log("execution time2", Date.now() - start1);
+  console.log("execution time", Date.now() - start);
 
   return asyncGetResults;
 };
